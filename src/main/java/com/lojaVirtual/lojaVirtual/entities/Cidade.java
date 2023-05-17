@@ -2,10 +2,7 @@ package com.lojaVirtual.lojaVirtual.entities;
 
 
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -16,6 +13,11 @@ public class Cidade extends EntidadeBase {
     private long id;
     @Column
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name="ESTADO_ID")
+    private Estado estado;
+
 
     public CidadeDTO paraDTO(Cidade cidade){
         CidadeDTO cidadeDTO = new CidadeDTO();

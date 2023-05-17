@@ -4,6 +4,8 @@ import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
+
 @Table
 @Data
 @Entity(name = "ESTADO")
@@ -16,6 +18,8 @@ public class Estado extends EntidadeBase{
     private String nome;
     @Column
     private String sigla;
+    @OneToMany
+    private Set<Cidade> cidades;
 
     public EstadoDTO paraDTO(Estado estado){
         EstadoDTO estadoDTO = new EstadoDTO();

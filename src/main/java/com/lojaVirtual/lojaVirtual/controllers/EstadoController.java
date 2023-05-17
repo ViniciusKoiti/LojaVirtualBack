@@ -4,6 +4,7 @@ import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class EstadoController implements ControllerCRUD<EstadoDTO> {
     }
 
     @Override
-    public boolean criar(EstadoDTO estadoDTO) {
+    public boolean criar(@RequestBody EstadoDTO estadoDTO) {
         return estadoService.criarEstado(estadoDTO);
     }
 
