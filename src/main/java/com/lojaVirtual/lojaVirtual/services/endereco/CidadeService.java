@@ -4,6 +4,7 @@ import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
 
 import java.util.List;
 
+
 public interface CidadeService {
     CidadeDTO buscaCidadePorId(long id);
 

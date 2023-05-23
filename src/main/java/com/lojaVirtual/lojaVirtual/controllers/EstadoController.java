@@ -3,7 +3,8 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,15 @@ public class EstadoController implements ControllerCRUD<EstadoDTO> {
     private EstadoService estadoService;
 
     @Override
+    @GetMapping
     public List<EstadoDTO> buscarTodos() {
         return estadoService.buscaEstados();
     }
 
     @Override
-    public ResponseEntity<EstadoDTO> buscarPorId(long id) {
+    @GetMapping("/{id}")
+    @RequestMapping
+    public EstadoDTO buscarPorId(@PathVariable long id) {
         return estadoService.buscaEstadoPorId(id);
     }
 

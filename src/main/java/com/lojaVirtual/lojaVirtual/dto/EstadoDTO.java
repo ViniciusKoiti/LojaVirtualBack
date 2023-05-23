@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class EstadoDTO {
+    private long id;
     private String nome;
     private String sigla;
 

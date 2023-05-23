@@ -1,10 +1,8 @@
 package com.lojaVirtual.lojaVirtual.controllers;
 
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
-import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +24,7 @@ public class CidadeController implements ControllerCRUD<CidadeDTO> {
 
     @Override
     @GetMapping
-    public ResponseEntity<CidadeDTO> buscarPorId(long id) {
+    public CidadeDTO buscarPorId(long id) {
         return cidadeService.buscaCidadePorId(id);
     }
 

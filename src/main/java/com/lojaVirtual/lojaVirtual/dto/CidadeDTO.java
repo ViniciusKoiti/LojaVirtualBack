@@ -6,7 +6,9 @@ import lombok.Data;
 
 @Data
 public class CidadeDTO {
+    private long id;
     private String nome;
+    private long estado_dto;
 
     public Cidade paraEntidade(CidadeDTO cidadeDTO){
         Cidade cidade = new Cidade();

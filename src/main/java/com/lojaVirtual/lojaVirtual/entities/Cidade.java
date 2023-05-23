@@ -18,6 +18,9 @@ public class Cidade extends EntidadeBase {
     @JoinColumn(name="ESTADO_ID")
     private Estado estado;
 
+    @OneToOne(mappedBy = "cidade")
+    private Pessoa pessoa;
+
 
     public CidadeDTO paraDTO(Cidade cidade){
         CidadeDTO cidadeDTO = new CidadeDTO();
