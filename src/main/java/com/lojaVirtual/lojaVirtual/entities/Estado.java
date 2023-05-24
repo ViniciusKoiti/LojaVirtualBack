@@ -25,6 +25,7 @@ public class Estado extends EntidadeBase{
         EstadoDTO estadoDTO = new EstadoDTO();
         estadoDTO.setNome(estado.getNome());
         estadoDTO.setSigla(estado.getSigla());
+    
         return estadoDTO;
     };
 }

@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -30,6 +31,8 @@ public class Pessoa extends EntidadeBase {
     @Column
     private String cep;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ADDRESS_ID")
+    @JoinColumn(name = "CIDADE_ID")
     private Cidade cidade;
+    @OneToMany
+    private PermissaoPessoa permissaoPessoa;
 }

@@ -2,7 +2,9 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
-public class PermissaoController extends ControllerCRUD<Permissao> {
+import com.lojaVirtual.lojaVirtual.entities.Permissao;
+
+public class PermissaoController implements ControllerCRUD<Permissao> {
 
     @Override
     public List<Permissao> buscarTodos() {
@@ -27,5 +29,7 @@ public class PermissaoController extends ControllerCRUD<Permissao> {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deletar'");
     }
+
+    
     
 }
