@@ -22,9 +22,11 @@ public class Estado extends EntidadeBase{
     private Set<Cidade> cidades;
 
     public EstadoDTO paraDTO(Estado estado){
-        EstadoDTO estadoDTO = new EstadoDTO();
+        EstadoDTO estadoDTO = new EstadoDTO();     
+        estadoDTO.setId(estado.getId());
         estadoDTO.setNome(estado.getNome());
         estadoDTO.setSigla(estado.getSigla());
+        
     
         return estadoDTO;
     };
