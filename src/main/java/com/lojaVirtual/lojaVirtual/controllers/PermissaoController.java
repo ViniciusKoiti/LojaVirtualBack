@@ -2,8 +2,11 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RestController;
+
 import com.lojaVirtual.lojaVirtual.entities.Permissao;
 
+@RestController
 public class PermissaoController implements ControllerCRUD<Permissao> {
 
     @Override

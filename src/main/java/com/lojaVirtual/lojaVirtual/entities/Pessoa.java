@@ -1,12 +1,14 @@
 package com.lojaVirtual.lojaVirtual.entities;
 
-import org.springframework.data.annotation.Id;
+import java.util.List;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -15,7 +17,7 @@ import lombok.Data;
 
 @Table
 @Data
-@Entity(name = "PESSOA")
+@Entity(name = "pessoa")
 public class Pessoa extends EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +33,8 @@ public class Pessoa extends EntidadeBase {
     @Column
     private String cep;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CIDADE_ID")
+    @JoinColumn(name = "cidade_id")
     private Cidade cidade;
-    @OneToMany
-    private PermissaoPessoa permissaoPessoa;
+    @OneToMany(mappedBy = "pessoa")
+    private List<PermissaoPessoa> permissaoPessoa;
 }

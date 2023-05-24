@@ -2,8 +2,10 @@ package com.lojaVirtual.lojaVirtual.services.endereco;
 
 import java.util.List;
 
-import com.lojaVirtual.lojaVirtual.dto.PermissaoDTO;
+import org.springframework.stereotype.Service;
 
+import com.lojaVirtual.lojaVirtual.dto.PermissaoDTO;
+@Service
 public class PermissaoServiceImpl implements PermissaoService {
 
     @Override

@@ -2,8 +2,11 @@ package com.lojaVirtual.lojaVirtual.services.endereco;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.lojaVirtual.lojaVirtual.dto.PessoaDTO;
 
+@Service
 public class PessoaServiceImpl implements PessoaService {
 
     @Override

@@ -1,5 +1,7 @@
 package com.lojaVirtual.lojaVirtual.entities;
 
+import java.util.List;
+
 import org.hibernate.mapping.Set;
 
 import jakarta.persistence.Column;
@@ -22,7 +24,7 @@ public class Permissao extends EntidadeBase {
     @Column
     private String name;
 
-    @OneToMany
-    private PermissaoPessoa permissaoPessoa;  
+    @OneToMany(mappedBy = "permissao")
+    private List<PermissaoPessoa> permissaoPessoa;  
     
 }
