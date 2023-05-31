@@ -3,12 +3,13 @@ package com.lojaVirtual.lojaVirtual.dto;
 import java.util.List;
 
 import lombok.Data;
-
 @Data
-public class PermissaoDTO {
+public class MarcaDTO{
+
     private long id;
 
-    private String name;
+    private String nome;
 
-    private List<PermissaoPessoaDTO> permissaoPessoa;
+    private List<ProdutoDTO> produtos;
+
 }

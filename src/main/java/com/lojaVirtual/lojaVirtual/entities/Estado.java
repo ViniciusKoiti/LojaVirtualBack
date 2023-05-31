@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Table
 @Data
-@Entity(name = "ESTADO")
+@Entity(name = "estado")
 public class Estado extends EntidadeBase{
 
     @Id
