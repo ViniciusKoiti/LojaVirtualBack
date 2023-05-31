@@ -2,9 +2,17 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
-import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
+import com.lojaVirtual.lojaVirtual.services.MarcaService;
+
+@RestController
+@RequestMapping("/api/marca")
 public class MarcaController implements ControllerCRUD<MarcaDTO> {
+    
+    private MarcaService marcaService;
 
     @Override
     public List<MarcaDTO> buscarTodos() {

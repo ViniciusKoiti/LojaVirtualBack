@@ -2,12 +2,19 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lojaVirtual.lojaVirtual.entities.Permissao;
+import com.lojaVirtual.lojaVirtual.services.permissao.PermissaoService;
 
 @RestController
+@RequestMapping("/api/permissao")
 public class PermissaoController implements ControllerCRUD<Permissao> {
+
+    @Autowired
+    private PermissaoService permissaoService;
 
     @Override
     public List<Permissao> buscarTodos() {
@@ -22,7 +29,7 @@ public class PermissaoController implements ControllerCRUD<Permissao> {
     }
 
     @Override
-    public boolean criar(Permissao objeto) {
+    public boolean criar(Permissao permissao) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'criar'");
     }

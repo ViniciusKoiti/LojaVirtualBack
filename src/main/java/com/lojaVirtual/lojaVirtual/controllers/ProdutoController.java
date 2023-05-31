@@ -3,33 +3,29 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.lojaVirtual.lojaVirtual.dto.CategoriaDTO;
-import com.lojaVirtual.lojaVirtual.services.CategoriaService;
+import com.lojaVirtual.lojaVirtual.dto.ProdutoDTO;
+import com.lojaVirtual.lojaVirtual.services.ProdutoService;
 
-@RestController
-@RequestMapping("/api/categoria")
-public class CategoriaController implements ControllerCRUD<CategoriaDTO> {
+public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ProdutoService produtoService;
 
     @Override
-    public List<CategoriaDTO> buscarTodos() {
+    public List<ProdutoDTO> buscarTodos() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
     }
 
     @Override
-    public CategoriaDTO buscarPorId(long id) {
+    public ProdutoDTO buscarPorId(long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
     }
 
     @Override
-    public boolean criar(CategoriaDTO objeto) {
+    public boolean criar(ProdutoDTO objeto) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'criar'");
     }

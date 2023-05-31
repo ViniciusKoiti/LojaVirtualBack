@@ -2,11 +2,21 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
-import com.lojaVirtual.lojaVirtual.entities.Pessoa;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.lojaVirtual.lojaVirtual.entities.Pessoa;
+import com.lojaVirtual.lojaVirtual.services.permissao.PessoaService;
+
+@RestController
+@RequestMapping("/api/pessoa")
 public class PessoaController implements ControllerCRUD<Pessoa> {
 
+    private PessoaService pessoaService;
+
     @Override
+    @GetMapping("/")
     public List<Pessoa> buscarTodos() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
