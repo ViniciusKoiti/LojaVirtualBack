@@ -19,11 +19,11 @@ public class PermissaoPessoa extends EntidadeBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    @JoinColumn(name = "PERMISSAO_ID")
+    @JoinColumn(name = "permissao_id")
     private Permissao permissao;
 
     @ManyToOne
-    @JoinColumn(name="PESSOA_ID")
+    @JoinColumn(name="pessoa_id")
     private Pessoa pessoa;
 
 }
