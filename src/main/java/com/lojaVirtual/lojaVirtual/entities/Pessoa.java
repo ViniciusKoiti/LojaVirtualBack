@@ -23,7 +23,7 @@ public class Pessoa extends EntidadeBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String name;
+    private String nome;
     @Column
     private String cpf;
     @Column

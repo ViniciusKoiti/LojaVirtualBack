@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity(name = "cidade")
 public class Cidade extends EntidadeBase {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String nome;

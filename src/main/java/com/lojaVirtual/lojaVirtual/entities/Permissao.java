@@ -14,14 +14,14 @@ import lombok.Data;
 
 @Table
 @Data
-@Entity(name = "PERMISSAO")
+@Entity(name = "permissao")
 public class Permissao extends EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
-    private String name;
+    private String nome;
 
     @OneToMany(mappedBy = "permissao")
     private List<PermissaoPessoa> permissaoPessoa;  

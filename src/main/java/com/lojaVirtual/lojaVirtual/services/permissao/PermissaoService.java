@@ -1,4 +1,4 @@
-package com.lojaVirtual.lojaVirtual.services.endereco;
+package com.lojaVirtual.lojaVirtual.services.permissao;
 
 import java.util.List;
 
