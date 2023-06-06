@@ -4,6 +4,7 @@ package com.lojaVirtual.lojaVirtual.services.endereco;
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
 import com.lojaVirtual.lojaVirtual.entities.Cidade;
 import com.lojaVirtual.lojaVirtual.repository.CidadeRepository;
+import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 
 import org.hibernate.type.descriptor.DateTimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;

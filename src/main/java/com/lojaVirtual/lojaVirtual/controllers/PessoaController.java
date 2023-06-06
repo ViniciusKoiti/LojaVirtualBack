@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lojaVirtual.lojaVirtual.entities.Pessoa;
-import com.lojaVirtual.lojaVirtual.services.permissao.PessoaService;
+import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PessoaService;
 
 @RestController
 @RequestMapping("/api/pessoa")

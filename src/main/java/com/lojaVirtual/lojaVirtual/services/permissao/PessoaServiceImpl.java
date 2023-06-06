@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lojaVirtual.lojaVirtual.dto.PessoaDTO;
+import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PessoaService;
 
 @Service
 public class PessoaServiceImpl implements PessoaService {

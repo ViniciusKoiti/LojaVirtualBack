@@ -1,7 +1,8 @@
 package com.lojaVirtual.lojaVirtual.controllers;
 
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
-import com.lojaVirtual.lojaVirtual.services.endereco.CidadeService;
+import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

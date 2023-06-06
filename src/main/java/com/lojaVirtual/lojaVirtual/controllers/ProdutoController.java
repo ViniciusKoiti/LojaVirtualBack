@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lojaVirtual.lojaVirtual.dto.ProdutoDTO;
-import com.lojaVirtual.lojaVirtual.services.ProdutoService;
+import com.lojaVirtual.lojaVirtual.services.produto.interfaces.ProdutoService;
 
 public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 

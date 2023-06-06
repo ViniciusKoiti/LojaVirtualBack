@@ -1,7 +1,8 @@
 package com.lojaVirtual.lojaVirtual.controllers;
 
 import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
-import com.lojaVirtual.lojaVirtual.services.endereco.EstadoService;
+import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lojaVirtual.lojaVirtual.dto.CategoriaDTO;
-import com.lojaVirtual.lojaVirtual.services.CategoriaService;
+import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
 
 @RestController
 @RequestMapping("/api/categoria")

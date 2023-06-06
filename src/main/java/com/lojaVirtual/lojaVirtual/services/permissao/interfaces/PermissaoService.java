@@ -1,4 +1,4 @@
-package com.lojaVirtual.lojaVirtual.services.permissao;
+package com.lojaVirtual.lojaVirtual.services.permissao.interfaces;
 
 import java.util.List;
 

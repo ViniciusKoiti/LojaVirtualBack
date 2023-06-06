@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lojaVirtual.lojaVirtual.dto.PermissaoDTO;
+import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PermissaoService;
 @Service
 public class PermissaoServiceImpl implements PermissaoService {
 

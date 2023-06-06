@@ -3,6 +3,8 @@ package com.lojaVirtual.lojaVirtual.services.endereco;
 import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.entities.Estado;
 import com.lojaVirtual.lojaVirtual.repository.EstadoRepository;
+import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

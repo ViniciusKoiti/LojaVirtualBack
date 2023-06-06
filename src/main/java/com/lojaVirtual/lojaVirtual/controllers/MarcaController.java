@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
-import com.lojaVirtual.lojaVirtual.services.MarcaService;
+import com.lojaVirtual.lojaVirtual.services.produto.interfaces.MarcaService;
 
 @RestController
 @RequestMapping("/api/marca")
@@ -16,14 +16,12 @@ public class MarcaController implements ControllerCRUD<MarcaDTO> {
 
     @Override
     public List<MarcaDTO> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+        return marcaService.buscaMarcaDTOs();
     }
 
     @Override
     public MarcaDTO buscarPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+        return marcaService.getMarcaById(id);
     }
 
     @Override

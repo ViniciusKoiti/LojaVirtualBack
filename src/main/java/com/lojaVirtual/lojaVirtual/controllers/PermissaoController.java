@@ -6,40 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lojaVirtual.lojaVirtual.dto.PermissaoDTO;
 import com.lojaVirtual.lojaVirtual.entities.Permissao;
-import com.lojaVirtual.lojaVirtual.services.permissao.PermissaoService;
+import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PermissaoService;
 
 @RestController
 @RequestMapping("/api/permissao")
-public class PermissaoController implements ControllerCRUD<Permissao> {
+public class PermissaoController implements ControllerCRUD<PermissaoDTO> {
 
     @Autowired
     private PermissaoService permissaoService;
 
     @Override
-    public List<Permissao> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+    public List<PermissaoDTO> buscarTodos() {
+        return permissaoService.buscaPermissaoDTOs();
     }
 
     @Override
-    public Permissao buscarPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    public PermissaoDTO buscarPorId(long id) {
+        return permissaoService.buscaPermissaoPorId(id);
     }
 
     @Override
-    public boolean criar(Permissao permissao) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criar'");
+    public boolean criar(PermissaoDTO objeto) {
+        return permissaoService.criarPermissao(objeto);
     }
 
     @Override
     public boolean deletar(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+        return permissaoService.deletarPermissao(id);
     }
 
-    
-    
 }
