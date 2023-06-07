@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Data
@@ -17,13 +18,16 @@ public class ProdutoDTO {
 
     private String descricaoDetalhada;
 
-    @NotNull(message = "")
+    @Positive(message = "Valor do custo deve ser positivo")
     private double valorCusto;
 
+    @Positive(message = "Valor do venda deve ser positivo")
     private double valorVenda;
 
+    @NotNull(message = "Defina a marca")
     private MarcaDTO marca;
 
+    @NotNull(message = "Defina a categoria")
     private CategoriaDTO categoria;
 
     private List<ProdutoImagensDTO> produtosImagens;

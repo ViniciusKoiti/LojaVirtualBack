@@ -3,6 +3,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,26 +19,22 @@ public class CategoriaController implements ControllerCRUD<CategoriaDTO> {
 
     @Override
     public List<CategoriaDTO> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+        return categoriaService.buscaCategorias();
     }
 
     @Override
     public CategoriaDTO buscarPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+        return categoriaService.getCategoriaById(id);
     }
 
     @Override
     public boolean criar(CategoriaDTO objeto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criar'");
+       return categoriaService.criarCategoria(objeto);
     }
 
     @Override
     public boolean deletar(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+        return categoriaService.deletaCategoria(id);
     }
     
 }

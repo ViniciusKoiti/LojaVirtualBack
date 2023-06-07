@@ -26,7 +26,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public boolean deletaCategoria(int id) {
+    public boolean deletaCategoria(long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deletaCategoria'");
     }

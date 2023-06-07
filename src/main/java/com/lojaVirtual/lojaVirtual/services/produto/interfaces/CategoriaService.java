@@ -15,5 +15,5 @@ public interface CategoriaService {
 
     boolean criarCategoria(CategoriaDTO categoria);
 
-    boolean deletaCategoria(int id);
+    boolean deletaCategoria(long id);
 }
