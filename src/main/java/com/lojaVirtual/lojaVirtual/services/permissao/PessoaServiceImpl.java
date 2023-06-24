@@ -12,37 +12,37 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public List<PessoaDTO> buscaPessoas() {
-        List<Produto> produtos = produtosRepository.findAll();
-        List<ProdutoDTO> produtoDTO = new ArrayList<>();
-        for (Produto produto: produtos) {
-            produtoDTO.add(produto.paraDTO(produto));
+        List<Pessoa> pessoas = pessoasRepository.findAll();
+        List<PessoaDTO> pessoaDTO = new ArrayList<>();
+        for (Pessoa pessoa: pessoas) {
+            pessoaDTO.add(pessoa.paraDTO(pessoa));
         }
         return cidadesDTO;
     }
 
     @Override
     public PessoaDTO buscaPessoaPorId(long id) {
-        Optional<Produto> produtoOptional = produtoRepository.findById(id);
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(id);
         
-        Produto produto = produtoOptional.get();
+        Pessoa pessoa = pessoaOptional.get();
         
-        ProdutoDTO produtoDTO = produto.paraDTO(produto);
-        return produtoDTO;
+        PessoaDTO pessoaDTO = pessoa.paraDTO(pessoa);
+        return pessoaDTO;
     }
 
     @Override
     public boolean criarPessoa(PessoaDTO pessoaDTO) {
-        Produto produto = produtoDTO.paraEntidade(produtoDTO);
-        produtoDTO.setDateAlteracao(new Date());
-        produtosRepository.saveAndFlush(produto);        
+        Pessoa pessoa = pessoaDTO.paraEntidade(pessoaDTO);
+        pessoaDTO.setDateAlteracao(new Date());
+        pessoasRepository.saveAndFlush(pessoa);        
         return true;
     }
 
     @Override
     public boolean deletarPessoa(long id) {
         try{
-            Produto produto = produtoRepository.getReferenceById(id);
-            produtoRepository.delete(produto);
+            Pessoa pessoa = pessoaRepository.getReferenceById(id);
+            pessoaRepository.delete(pessoa);
             return true;
         } catch(Exception e) {
             throw e;
