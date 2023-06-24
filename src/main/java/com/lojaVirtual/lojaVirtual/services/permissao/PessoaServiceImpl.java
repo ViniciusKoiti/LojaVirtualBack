@@ -12,26 +12,41 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public List<PessoaDTO> buscaPessoas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaPessoas'");
+        List<Produto> produtos = produtosRepository.findAll();
+        List<ProdutoDTO> produtoDTO = new ArrayList<>();
+        for (Produto produto: produtos) {
+            produtoDTO.add(produto.paraDTO(produto));
+        }
+        return cidadesDTO;
     }
 
     @Override
     public PessoaDTO buscaPessoaPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaPessoaPorId'");
+        Optional<Produto> produtoOptional = produtoRepository.findById(id);
+        
+        Produto produto = produtoOptional.get();
+        
+        ProdutoDTO produtoDTO = produto.paraDTO(produto);
+        return produtoDTO;
     }
 
     @Override
     public boolean criarPessoa(PessoaDTO pessoaDTO) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criarPessoa'");
+        Produto produto = produtoDTO.paraEntidade(produtoDTO);
+        produtoDTO.setDateAlteracao(new Date());
+        produtosRepository.saveAndFlush(produto);        
+        return true;
     }
 
     @Override
     public boolean deletarPessoa(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletarPessoa'");
+        try{
+            Produto produto = produtoRepository.getReferenceById(id);
+            produtoRepository.delete(produto);
+            return true;
+        } catch(Exception e) {
+            throw e;
+        }
     }
 
    

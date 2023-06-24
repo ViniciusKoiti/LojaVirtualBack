@@ -25,7 +25,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         
         Categoria categoria = categoriaOptional.get();
         
-        CategoriaDTO categoriaDTO = cidade.paraDTO(cidade);
+        CategoriaDTO categoriaDTO = categoria.paraDTO(categoria);
         return categoriaDTO;
     }
 
@@ -33,7 +33,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public boolean criarCategoria(CategoriaDTO categoriaDTO) {
         Categoria categoria = categoriaDTO.paraEntidade(categoriaDTO);
         categoriaDTO.setDateAlteracao(new Date());
-        categoriasRepository.saveAndFlush(cidade);        
+        categoriasRepository.saveAndFlush(categoria);        
         return true;
     }
 
