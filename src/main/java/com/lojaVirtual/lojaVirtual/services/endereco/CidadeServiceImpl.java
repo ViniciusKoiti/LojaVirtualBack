@@ -6,8 +6,7 @@ import com.lojaVirtual.lojaVirtual.entities.Cidade;
 import com.lojaVirtual.lojaVirtual.repository.CidadeRepository;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 
-import org.hibernate.type.descriptor.DateTimeUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.Optional;
 @Service
 public class CidadeServiceImpl implements CidadeService {
     
-    private final CidadeRepository cidadeRepository;
+    private CidadeRepository cidadeRepository;
     @Override
     public CidadeDTO buscaCidadePorId(long id) {
         Optional<Cidade> cidadeOptional = cidadeRepository.findById(id);
@@ -41,7 +40,7 @@ public class CidadeServiceImpl implements CidadeService {
 
     @Override
     public boolean criarCidade(CidadeDTO cidadeDTO) {
-        Cidade cidade = cidadeDTO.paraEntidade(cidadeDTO);
+        Cidade cidade = UtilEntity.convertToEntity(cidadeDTO,Cidade.class);
         cidade.setDateAlteracao(new Date());
         cidadeRepository.saveAndFlush(cidade);        
         return true;

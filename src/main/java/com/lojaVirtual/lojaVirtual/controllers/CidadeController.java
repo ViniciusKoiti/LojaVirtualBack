@@ -3,7 +3,6 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/cidade")
 public class CidadeController implements ControllerCRUD<CidadeDTO> {
 
-    private final CidadeService cidadeService;
+    private CidadeService cidadeService;
 
 
     @Override

@@ -9,12 +9,11 @@ import com.lojaVirtual.lojaVirtual.services.produto.interfaces.ProdutoService;
 
 public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
-    @Autowired
     private ProdutoService produtoService;
 
     @Override
     public List<ProdutoDTO> buscarTodos() {
-       return categoriaService.buscaCategorias();
+       return produtoService.buscaProdutoDTOs();
     }
 
     @Override

@@ -14,5 +14,5 @@ public interface ProdutoService {
 
     boolean criarProduto(ProdutoDTO categoria);
 
-    boolean deletaProduto(int id);
+    boolean deletaProduto(long id);
 }

@@ -1,22 +1,31 @@
 package com.lojaVirtual.lojaVirtual.services.produto;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import com.lojaVirtual.lojaVirtual.dto.CategoriaDTO;
+import com.lojaVirtual.lojaVirtual.entities.Categoria;
+import com.lojaVirtual.lojaVirtual.repository.CategoriaRepository;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
+import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
+import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+import org.springframework.stereotype.Service;
+
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
-    private final CategoriaRepository categoriasRepository;
+    private CategoriaRepository categoriaRepository;
 
     @Override
     public List<CategoriaDTO> buscaCategorias() {
-        List<Categoria> categorias = categoriasRepository.findAll();
+        List<Categoria> categorias = categoriaRepository.findAll();
         List<CategoriaDTO> categoriaDTO = new ArrayList<>();
         for (Categoria categoria: categorias) {
-            categoriaDTO.add(categoria.paraDTO(categoria));
+            categoriaDTO.add(UtilDTO.convertToDTO(categoria, CategoriaDTO.class));
         }
-        return cidadesDTO;
+        return categoriaDTO;
     }
 
     @Override
@@ -25,15 +34,15 @@ public class CategoriaServiceImpl implements CategoriaService {
         
         Categoria categoria = categoriaOptional.get();
         
-        CategoriaDTO categoriaDTO = categoria.paraDTO(categoria);
+        CategoriaDTO categoriaDTO = UtilDTO.convertToDTO(categoria,CategoriaDTO.class);
         return categoriaDTO;
     }
 
     @Override
     public boolean criarCategoria(CategoriaDTO categoriaDTO) {
-        Categoria categoria = categoriaDTO.paraEntidade(categoriaDTO);
-        categoriaDTO.setDateAlteracao(new Date());
-        categoriasRepository.saveAndFlush(categoria);        
+        Categoria categoria = UtilEntity.convertToEntity(categoriaDTO,Categoria.class);
+        categoria.setDateAlteracao(new Date());
+        categoriaRepository.saveAndFlush(categoria);
         return true;
     }
 

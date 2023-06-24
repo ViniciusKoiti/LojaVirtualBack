@@ -9,5 +9,6 @@ public class CategoriaDTO {
     @Valid()
     private long id;
     private String nome;
-    private List<ProdutoDTO> cidades;
+    private List<ProdutoDTO> produtosDto;
+
 }

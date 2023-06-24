@@ -3,7 +3,6 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/estado")
 public class EstadoController implements ControllerCRUD<EstadoDTO> {
 
-    private final EstadoService estadoService;
+    private EstadoService estadoService;
 
     @Override
     @GetMapping

@@ -5,7 +5,6 @@ import com.lojaVirtual.lojaVirtual.entities.Estado;
 import com.lojaVirtual.lojaVirtual.repository.EstadoRepository;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 @Service
 public class EstadoServiceImpl implements EstadoService{
 
-    private final EstadoRepository estadoRepository;
+    private EstadoRepository estadoRepository;
 
     @Override
     public List<EstadoDTO> buscaEstados() {

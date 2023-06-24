@@ -1,7 +1,14 @@
 package com.lojaVirtual.lojaVirtual.services.permissao;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+import com.lojaVirtual.lojaVirtual.entities.Pessoa;
+import com.lojaVirtual.lojaVirtual.repository.PessoaRepository;
+import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
+import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
 import org.springframework.stereotype.Service;
 
 import com.lojaVirtual.lojaVirtual.dto.PessoaDTO;
@@ -10,14 +17,17 @@ import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PessoaService;
 @Service
 public class PessoaServiceImpl implements PessoaService {
 
+    private PessoaRepository pessoaRepository;
+
+
     @Override
     public List<PessoaDTO> buscaPessoas() {
-        List<Pessoa> pessoas = pessoasRepository.findAll();
+        List<Pessoa> pessoas = pessoaRepository.findAll();
         List<PessoaDTO> pessoaDTO = new ArrayList<>();
         for (Pessoa pessoa: pessoas) {
-            pessoaDTO.add(pessoa.paraDTO(pessoa));
+            pessoaDTO.add(UtilDTO.convertToDTO(pessoa,PessoaDTO.class));
         }
-        return cidadesDTO;
+        return pessoaDTO;
     }
 
     @Override
@@ -26,15 +36,15 @@ public class PessoaServiceImpl implements PessoaService {
         
         Pessoa pessoa = pessoaOptional.get();
         
-        PessoaDTO pessoaDTO = pessoa.paraDTO(pessoa);
+        PessoaDTO pessoaDTO = UtilDTO.convertToDTO(pessoa,PessoaDTO.class);
         return pessoaDTO;
     }
 
     @Override
     public boolean criarPessoa(PessoaDTO pessoaDTO) {
-        Pessoa pessoa = pessoaDTO.paraEntidade(pessoaDTO);
-        pessoaDTO.setDateAlteracao(new Date());
-        pessoasRepository.saveAndFlush(pessoa);        
+        Pessoa pessoa = UtilEntity.convertToEntity(pessoaDTO, Pessoa.class);
+        pessoa.setDateAlteracao(new Date());
+        pessoaRepository.saveAndFlush(pessoa);
         return true;
     }
 

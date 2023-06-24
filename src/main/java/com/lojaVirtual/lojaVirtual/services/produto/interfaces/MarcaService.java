@@ -15,5 +15,5 @@ public interface MarcaService {
 
     boolean criarMarca(MarcaDTO marca);
 
-    boolean deletaMarca(int id);
+    boolean deletaMarca(long id);
 }

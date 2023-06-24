@@ -1,20 +1,29 @@
 package com.lojaVirtual.lojaVirtual.services.produto;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
+import com.lojaVirtual.lojaVirtual.entities.Marca;
+import com.lojaVirtual.lojaVirtual.repository.MarcaRepository;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.MarcaService;
+import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
+import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+import org.springframework.stereotype.Service;
+
 @Service
 public class MarcaServiceImpl implements MarcaService {
 
-    private final MarcaRepository marcaRepository; 
+    private MarcaRepository marcaRepository;
 
     @Override
     public List<MarcaDTO> buscaMarcaDTOs() {
         List<Marca> marcas = marcaRepository.findAll();
         List<MarcaDTO> marcasDTO = new ArrayList<>();
         for (Marca marca: marcas) {
-            marcasDTO.add(marca.paraDTO(marca));
+            marcasDTO.add(UtilDTO.convertToDTO(marca,MarcaDTO.class));
         }
         return marcasDTO;
     }
@@ -25,20 +34,20 @@ public class MarcaServiceImpl implements MarcaService {
         
         Marca marca = marcaOptional.get();
         
-        MarcaDTO marcaDTO = marca.paraDTO(marca);
+        MarcaDTO marcaDTO = UtilDTO.convertToDTO(marca,MarcaDTO.class);
         return marcaDTO;
     }
 
     @Override
-    public boolean criarMarca(MarcaDTO marca) {
-        Marca marca = marcaDTO.paraEntidade(marcaDTO);
-        marcaDTO.setDateAlteracao(new Date());
+    public boolean criarMarca(MarcaDTO marcaDTO) {
+        Marca marca = UtilEntity.convertToEntity(marcaDTO,Marca.class);
+        marca.setDateAlteracao(new Date());
         marcaRepository.saveAndFlush(marca);        
         return true;
     }
 
     @Override
-    public boolean deletaMarca(int id) {
+    public boolean deletaMarca(long id) {
        try{
             Marca marca = marcaRepository.getReferenceById(id);
             marcaRepository.delete(marca);
