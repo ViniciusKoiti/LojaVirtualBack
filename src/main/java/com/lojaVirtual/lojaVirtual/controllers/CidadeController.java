@@ -14,8 +14,7 @@ import java.util.List;
 @RequestMapping("/api/cidade")
 public class CidadeController implements ControllerCRUD<CidadeDTO> {
 
-    @Autowired
-    private CidadeService cidadeService;
+    private final CidadeService cidadeService;
 
 
     @Override

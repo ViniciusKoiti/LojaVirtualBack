@@ -14,8 +14,7 @@ import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PermissaoServic
 @RequestMapping("/api/permissao")
 public class PermissaoController implements ControllerCRUD<PermissaoDTO> {
 
-    @Autowired
-    private PermissaoService permissaoService;
+    private final PermissaoService permissaoService;
 
     @Override
     public List<PermissaoDTO> buscarTodos() {

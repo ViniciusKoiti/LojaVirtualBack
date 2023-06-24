@@ -16,8 +16,7 @@ import java.util.List;
 @RequestMapping("/api/estado")
 public class EstadoController implements ControllerCRUD<EstadoDTO> {
 
-    @Autowired
-    private EstadoService estadoService;
+    private final EstadoService estadoService;
 
     @Override
     @GetMapping

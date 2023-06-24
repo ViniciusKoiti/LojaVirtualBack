@@ -14,8 +14,7 @@ public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
     @Override
     public List<ProdutoDTO> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+       return categoriaService.buscaCategorias();
     }
 
     @Override

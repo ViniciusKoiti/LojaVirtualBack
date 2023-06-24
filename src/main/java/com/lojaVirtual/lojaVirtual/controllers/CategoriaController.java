@@ -1,4 +1,3 @@
-package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
@@ -14,8 +13,7 @@ import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
 @RequestMapping("/api/categoria")
 public class CategoriaController implements ControllerCRUD<CategoriaDTO> {
 
-    @Autowired
-    private CategoriaService categoriaService;
+    private final CategoriaService categoriaService;
 
     @Override
     public List<CategoriaDTO> buscarTodos() {
