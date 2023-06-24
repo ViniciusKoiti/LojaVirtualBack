@@ -21,20 +21,31 @@ public class ProdutoServiceImpl implements ProdutoService{
 
     @Override
     public ProdutoDTO getProdutoById(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProdutoById'");
+        Optional<Produto> produtoOptional = produtoRepository.findById(id);
+        
+        Produto produto = produtoOptional.get();
+        
+        ProdutoDTO produtoDTO = produto.paraDTO(produto);
+        return produtoDTO;
     }
 
     @Override
     public boolean criarProduto(ProdutoDTO categoria) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criarProduto'");
+        Produto produto = produtoDTO.paraEntidade(produtoDTO);
+        produtoDTO.setDateAlteracao(new Date());
+        produtoRepository.saveAndFlush(produto);        
+        return true;
     }
 
     @Override
     public boolean deletaProduto(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletaProduto'");
+       try{
+            Produto produto = produtoRepository.getReferenceById(id);
+            produtoRepository.delete(produto);
+            return true;
+        } catch(Exception e) {
+            throw e;
+        }
     }
     
 }

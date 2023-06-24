@@ -25,7 +25,7 @@ public class MarcaServiceImpl implements MarcaService {
         
         Marca marca = marcaOptional.get();
         
-        MarcaDTO marcaDTO = cidade.paraDTO(cidade);
+        MarcaDTO marcaDTO = marca.paraDTO(marca);
         return marcaDTO;
     }
 
@@ -33,7 +33,7 @@ public class MarcaServiceImpl implements MarcaService {
     public boolean criarMarca(MarcaDTO marca) {
         Marca marca = marcaDTO.paraEntidade(marcaDTO);
         marcaDTO.setDateAlteracao(new Date());
-        marcaRepository.saveAndFlush(cidade);        
+        marcaRepository.saveAndFlush(marca);        
         return true;
     }
 
