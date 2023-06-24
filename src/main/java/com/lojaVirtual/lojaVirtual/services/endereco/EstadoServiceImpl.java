@@ -13,8 +13,7 @@ import java.util.List;
 @Service
 public class EstadoServiceImpl implements EstadoService{
 
-    @Autowired
-    private EstadoRepository estadoRepository;
+    private final EstadoRepository estadoRepository;
 
     @Override
     public List<EstadoDTO> buscaEstados() {

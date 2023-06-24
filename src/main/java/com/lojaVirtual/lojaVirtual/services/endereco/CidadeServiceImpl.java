@@ -17,8 +17,8 @@ import java.util.Optional;
 
 @Service
 public class CidadeServiceImpl implements CidadeService {
-    @Autowired
-    private CidadeRepository cidadeRepository;
+    
+    private final CidadeRepository cidadeRepository;
     @Override
     public CidadeDTO buscaCidadePorId(long id) {
         Optional<Cidade> cidadeOptional = cidadeRepository.findById(id);

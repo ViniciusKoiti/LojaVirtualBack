@@ -4,13 +4,19 @@ import java.util.List;
 
 import com.lojaVirtual.lojaVirtual.dto.ProdutoDTO;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.ProdutoService;
-
+@Service
 public class ProdutoServiceImpl implements ProdutoService{
+
+    private final ProdutoRepository produtoRepository;
 
     @Override
     public List<ProdutoDTO> buscaProdutoDTOs() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaProdutoDTOs'");
+        List<Produto> produtos = produtoRepository.findAll();
+        List<ProdutoDTO> produtosDTO = new ArrayList<>();
+        for (Produto produto: produtos) {
+            produtosDTO.add(produto.paraDTO(produto));
+        }
+        return produtosDTO;
     }
 
     @Override

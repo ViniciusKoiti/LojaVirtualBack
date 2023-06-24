@@ -4,31 +4,48 @@ import java.util.List;
 
 import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.MarcaService;
-
+@Service
 public class MarcaServiceImpl implements MarcaService {
+
+    private final MarcaRepository marcaRepository; 
 
     @Override
     public List<MarcaDTO> buscaMarcaDTOs() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaMarcaDTOs'");
+        List<Marca> marcas = marcaRepository.findAll();
+        List<MarcaDTO> marcasDTO = new ArrayList<>();
+        for (Marca marca: marcas) {
+            marcasDTO.add(marca.paraDTO(marca));
+        }
+        return marcasDTO;
     }
 
     @Override
     public MarcaDTO getMarcaById(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getMarcaById'");
+        Optional<Marca> marcaOptional = marcaRepository.findById(id);
+        
+        Marca marca = marcaOptional.get();
+        
+        MarcaDTO marcaDTO = cidade.paraDTO(cidade);
+        return marcaDTO;
     }
 
     @Override
     public boolean criarMarca(MarcaDTO marca) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criarMarca'");
+        Marca marca = marcaDTO.paraEntidade(marcaDTO);
+        marcaDTO.setDateAlteracao(new Date());
+        marcaRepository.saveAndFlush(cidade);        
+        return true;
     }
 
     @Override
     public boolean deletaMarca(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletaMarca'");
+       try{
+            Marca marca = marcaRepository.getReferenceById(id);
+            marcaRepository.delete(marca);
+            return true;
+        } catch(Exception e) {
+            throw e;
+        }
     }
     
 }
