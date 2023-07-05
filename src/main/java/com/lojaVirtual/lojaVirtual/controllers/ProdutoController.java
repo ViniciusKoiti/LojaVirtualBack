@@ -11,8 +11,12 @@ public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
     private ProdutoService produtoService;
 
+    public ProdutoController(
+        ProdutoService produtoService
+    ){
+        this.produtoService = produtoService;
+    }
 
-    
     @Override
     public List<ProdutoDTO> buscarTodos() {
        return produtoService.buscaProdutoDTOs();
