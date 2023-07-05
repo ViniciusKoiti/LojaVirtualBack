@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class PermissaoPessoaDTO {
- 
+
     private long id;
 
     private PermissaoDTO permissao;

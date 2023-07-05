@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lojaVirtual.lojaVirtual.dto.CategoriaDTO;
+import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
 
 @RestController
@@ -13,6 +14,12 @@ import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
 public class CategoriaController implements ControllerCRUD<CategoriaDTO> {
 
     private CategoriaService categoriaService;
+
+     public CategoriaController(
+        CategoriaService categoriaService
+    ){
+        this.categoriaService = categoriaService;
+    }
 
     @Override
     public List<CategoriaDTO> buscarTodos() {

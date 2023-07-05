@@ -2,42 +2,67 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lojaVirtual.lojaVirtual.dto.PessoaDTO;
 import com.lojaVirtual.lojaVirtual.entities.Pessoa;
 import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PessoaService;
 
 @RestController
 @RequestMapping("/api/pessoa")
-public class PessoaController implements ControllerCRUD<Pessoa> {
-
+@CrossOrigin
+public class PessoaController implements ControllerCRUD<PessoaDTO> {
     private PessoaService pessoaService;
 
-    @Override
-    @GetMapping("/")
-    public List<Pessoa> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+    public PessoaController(PessoaService pessoaService){
+        this.pessoaService = pessoaService;
+    }
+    @GetMapping("/cidade/{cidade_id}")
+    public List<PessoaDTO> getPessoaDaCidade(@PathVariable Long cidade_id){
+        return pessoaService.encontraPessoaCidade(cidade_id);
+    }
+
+    @GetMapping("/permissao/{id}")
+    public List<PessoaDTO> getPessoaPorPermissao(@PathVariable Long permissao_id){
+        return pessoaService.encontraPessoasComPermissao(permissao_id);
     }
 
     @Override
-    public Pessoa buscarPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    @GetMapping
+    public List<PessoaDTO> buscarTodos() {
+        return pessoaService.buscaPessoas();
     }
 
-    @Override
-    public boolean criar(Pessoa objeto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criar'");
-    }
 
     @Override
+
+    public PessoaDTO buscarPorId(long id) {
+        return pessoaService.buscaPessoaPorId(id);
+    }
+
+
+
+
+    @Override
+    public boolean criar(PessoaDTO objeto) {
+        return pessoaService.criarPessoa(objeto);
+    }
+
+
+
+
+    @Override
+    @DeleteMapping("/{id}")
     public boolean deletar(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+        return pessoaService.deletarPessoa(id);
     }
+
+
     
 }

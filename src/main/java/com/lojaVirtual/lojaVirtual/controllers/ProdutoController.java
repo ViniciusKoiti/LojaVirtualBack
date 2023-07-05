@@ -11,6 +11,8 @@ public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
     private ProdutoService produtoService;
 
+
+    
     @Override
     public List<ProdutoDTO> buscarTodos() {
        return produtoService.buscaProdutoDTOs();
@@ -18,20 +20,17 @@ public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
 
     @Override
     public ProdutoDTO buscarPorId(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+        return produtoService.getProdutoById(id);
     }
 
     @Override
     public boolean criar(ProdutoDTO objeto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criar'");
+        return produtoService.criarProduto(objeto);
     }
 
     @Override
     public boolean deletar(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+        return produtoService.deletaProduto(id);
     }
     
 }

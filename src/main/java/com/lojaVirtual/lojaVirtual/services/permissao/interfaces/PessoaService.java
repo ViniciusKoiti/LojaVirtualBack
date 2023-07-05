@@ -14,4 +14,8 @@ public interface PessoaService {
 
     boolean deletarPessoa(long id);    
 
+    List<PessoaDTO> encontraPessoaCidade(Long cidade_id);
+
+    List<PessoaDTO> encontraPessoasComPermissao(Long pessoa_id);
+
 }

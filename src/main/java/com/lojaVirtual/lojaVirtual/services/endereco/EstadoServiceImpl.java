@@ -4,6 +4,7 @@ import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.entities.Estado;
 import com.lojaVirtual.lojaVirtual.repository.EstadoRepository;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
+import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
 
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,7 @@ public class EstadoServiceImpl implements EstadoService{
     @Override
     public boolean criarEstado(EstadoDTO estadoDTO) {
         try{
-        Estado estado = estadoDTO.paraEntidade(estadoDTO);
+        Estado estado = UtilEntity.convertToEntity(estadoDTO, Estado.class);
         estadoRepository.saveAndFlush(estado);
         return true;
         } catch(Exception e) {
