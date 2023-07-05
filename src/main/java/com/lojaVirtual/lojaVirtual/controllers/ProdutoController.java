@@ -3,6 +3,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 import com.lojaVirtual.lojaVirtual.dto.ProdutoDTO;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.ProdutoService;
@@ -18,7 +19,7 @@ public class ProdutoController implements ControllerCRUD<ProdutoDTO>{
     }
 
     @Override
-    public List<ProdutoDTO> buscarTodos() {
+    public ResponseEntity<List<ProdutoDTO>> buscarTodos() {
        return produtoService.buscaProdutoDTOs();
     }
 

@@ -2,6 +2,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class MarcaController implements ControllerCRUD<MarcaDTO> {
 
     @Override
     @GetMapping
-    public List<MarcaDTO> buscarTodos() {
+    public ResponseEntity<List<MarcaDTO>> buscarTodos() {
         return marcaService.buscaMarcaDTOs();
     }
 

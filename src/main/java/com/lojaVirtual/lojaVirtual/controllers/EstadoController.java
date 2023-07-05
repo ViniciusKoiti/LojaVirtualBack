@@ -3,6 +3,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class EstadoController implements ControllerCRUD<EstadoDTO> {
 
     @Override
     @GetMapping
-    public List<EstadoDTO> buscarTodos() {
+    public ResponseEntity<List<EstadoDTO>> buscarTodos() {
         return estadoService.buscaEstados();
     }
 

@@ -11,6 +11,9 @@ import com.lojaVirtual.lojaVirtual.repository.ProdutoRepository;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.ProdutoService;
 import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,13 +22,13 @@ public class ProdutoServiceImpl implements ProdutoService{
     private ProdutoRepository produtoRepository;
 
     @Override
-    public List<ProdutoDTO> buscaProdutoDTOs() {
+    public ResponseEntity<List<ProdutoDTO>> buscaProdutoDTOs() {
         List<Produto> produtos = produtoRepository.findAll();
         List<ProdutoDTO> produtosDTO = new ArrayList<>();
         for (Produto produto: produtos) {
             produtosDTO.add(UtilDTO.convertToDTO(produto, ProdutoDTO.class));
         }
-        return produtosDTO;
+        return new ResponseEntity<List<ProdutoDTO>>(produtosDTO, HttpStatus.OK);
     }
 
     @Override

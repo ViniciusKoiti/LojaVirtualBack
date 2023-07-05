@@ -4,8 +4,10 @@ import com.lojaVirtual.lojaVirtual.dto.EstadoDTO;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 public interface EstadoService {
-    List<EstadoDTO> buscaEstados();
+    ResponseEntity<List<EstadoDTO>> buscaEstados();
 
     EstadoDTO buscaEstadoPorId(long id);
 

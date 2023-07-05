@@ -3,6 +3,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class CidadeController implements ControllerCRUD<CidadeDTO> {
     }
     @Override
     @GetMapping
-    public List<CidadeDTO> buscarTodos() {
+    public ResponseEntity<List<CidadeDTO>> buscarTodos() {
         return cidadeService.buscaTodasCidade();
     }
 

@@ -4,11 +4,13 @@ import com.lojaVirtual.lojaVirtual.dto.CidadeDTO;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 
 public interface CidadeService {
     CidadeDTO buscaCidadePorId(long id);
 
-    List<CidadeDTO> buscaTodasCidade();
+    ResponseEntity<List<CidadeDTO>> buscaTodasCidade();
 
     boolean criarCidade(CidadeDTO cidadeDTO);
 

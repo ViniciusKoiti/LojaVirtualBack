@@ -2,6 +2,7 @@ package com.lojaVirtual.lojaVirtual.services.permissao;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.lojaVirtual.lojaVirtual.dto.PermissaoDTO;
@@ -10,7 +11,7 @@ import com.lojaVirtual.lojaVirtual.services.permissao.interfaces.PermissaoServic
 public class PermissaoServiceImpl implements PermissaoService {
 
     @Override
-    public List<PermissaoDTO> buscaPermissaoDTOs() {
+    public ResponseEntity<List<PermissaoDTO>> buscaPermissaoDTOs() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscaPermissaoDTOs'");
     }

@@ -5,12 +5,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.lojaVirtual.lojaVirtual.dto.CategoriaDTO;
 import com.lojaVirtual.lojaVirtual.dto.MarcaDTO;
 import com.lojaVirtual.lojaVirtual.entities.Marca;
 import com.lojaVirtual.lojaVirtual.repository.MarcaRepository;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.MarcaService;
 import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,13 +23,13 @@ public class MarcaServiceImpl implements MarcaService {
     private MarcaRepository marcaRepository;
 
     @Override
-    public List<MarcaDTO> buscaMarcaDTOs() {
+    public ResponseEntity<List<MarcaDTO>> buscaMarcaDTOs() {
         List<Marca> marcas = marcaRepository.findAll();
         List<MarcaDTO> marcasDTO = new ArrayList<>();
         for (Marca marca: marcas) {
             marcasDTO.add(UtilDTO.convertToDTO(marca,MarcaDTO.class));
         }
-        return marcasDTO;
+        return new ResponseEntity<List<MarcaDTO>>(marcasDTO, HttpStatus.OK);
     }
 
     @Override

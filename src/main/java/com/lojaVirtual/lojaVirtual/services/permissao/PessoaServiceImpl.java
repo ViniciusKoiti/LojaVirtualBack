@@ -12,6 +12,8 @@ import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.lojaVirtual.lojaVirtual.dto.PessoaDTO;
@@ -26,13 +28,13 @@ public class PessoaServiceImpl implements PessoaService {
         this.pessoaRepository = pessoaRepository;
     }
     @Override
-    public List<PessoaDTO> buscaPessoas() {
+    public ResponseEntity<List<PessoaDTO>> buscaPessoas() {
         List<Pessoa> pessoas = pessoaRepository.findAll();
         List<PessoaDTO> pessoaDTO = new ArrayList<>();
         for (Pessoa pessoa: pessoas) {
             pessoaDTO.add(UtilDTO.convertToDTO(pessoa,PessoaDTO.class));
         }
-        return pessoaDTO;
+        return new ResponseEntity<List<PessoaDTO>>(pessoaDTO,HttpStatus.OK);
     }
 
     @Override

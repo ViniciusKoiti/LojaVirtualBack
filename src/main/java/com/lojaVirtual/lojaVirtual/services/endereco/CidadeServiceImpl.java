@@ -7,6 +7,9 @@ import com.lojaVirtual.lojaVirtual.repository.CidadeRepository;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.CidadeService;
 
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,13 +32,13 @@ public class CidadeServiceImpl implements CidadeService {
     }
 
     @Override
-    public List<CidadeDTO> buscaTodasCidade() {
+    public ResponseEntity<List<CidadeDTO>> buscaTodasCidade() {
         List<Cidade> cidades = cidadeRepository.findAll();
         List<CidadeDTO> cidadesDTO = new ArrayList<>();
         for (Cidade cidade: cidades) {
             cidadesDTO.add(cidade.paraDTO(cidade));
         }
-        return cidadesDTO;
+        return new ResponseEntity<List<CidadeDTO>>(cidadesDTO, HttpStatus.OK);
     }
 
     @Override

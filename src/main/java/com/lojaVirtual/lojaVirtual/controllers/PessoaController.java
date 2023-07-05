@@ -3,6 +3,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,13 +30,14 @@ public class PessoaController implements ControllerCRUD<PessoaDTO> {
     }
 
     @GetMapping("/permissao/{id}")
+    @RequestMapping("")
     public List<PessoaDTO> getPessoaPorPermissao(@PathVariable Long permissao_id){
         return pessoaService.encontraPessoasComPermissao(permissao_id);
     }
 
     @Override
     @GetMapping
-    public List<PessoaDTO> buscarTodos() {
+    public ResponseEntity<List<PessoaDTO>> buscarTodos() {
         return pessoaService.buscaPessoas();
     }
 

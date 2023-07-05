@@ -6,6 +6,8 @@ import com.lojaVirtual.lojaVirtual.repository.EstadoRepository;
 import com.lojaVirtual.lojaVirtual.services.endereco.interfaces.EstadoService;
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,13 +18,13 @@ public class EstadoServiceImpl implements EstadoService{
     private EstadoRepository estadoRepository;
 
     @Override
-    public List<EstadoDTO> buscaEstados() {
+    public ResponseEntity<List<EstadoDTO>> buscaEstados() {
         List<EstadoDTO> estadoDTOs = new ArrayList();
         List<Estado> estados = estadoRepository.findAll();
         for (Estado estado : estados) {
             estadoDTOs.add(estado.paraDTO(estado));
         }
-        return estadoDTOs;
+        return new ResponseEntity<>(estadoDTOs,HttpStatus.OK);
     }
 
     @Override

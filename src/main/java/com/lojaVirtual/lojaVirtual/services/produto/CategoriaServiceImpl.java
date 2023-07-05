@@ -11,6 +11,10 @@ import com.lojaVirtual.lojaVirtual.repository.CategoriaRepository;
 import com.lojaVirtual.lojaVirtual.services.produto.interfaces.CategoriaService;
 import com.lojaVirtual.lojaVirtual.utils.UtilDTO;
 import com.lojaVirtual.lojaVirtual.utils.UtilEntity;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,13 +23,13 @@ public class CategoriaServiceImpl implements CategoriaService {
     private CategoriaRepository categoriaRepository;
 
     @Override
-    public List<CategoriaDTO> buscaCategorias() {
+    public ResponseEntity<List<CategoriaDTO>> buscaCategorias() {
         List<Categoria> categorias = categoriaRepository.findAll();
         List<CategoriaDTO> categoriaDTO = new ArrayList<>();
         for (Categoria categoria: categorias) {
             categoriaDTO.add(UtilDTO.convertToDTO(categoria, CategoriaDTO.class));
         }
-        return categoriaDTO;
+        return new ResponseEntity<List<CategoriaDTO>>(categoriaDTO, HttpStatus.OK);
     }
 
     @Override

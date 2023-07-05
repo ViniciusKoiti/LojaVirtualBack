@@ -2,6 +2,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class PermissaoController implements ControllerCRUD<PermissaoDTO> {
 
     @Override
     @GetMapping
-    public List<PermissaoDTO> buscarTodos() {
+    public ResponseEntity<List<PermissaoDTO>> buscarTodos() {
         return permissaoService.buscaPermissaoDTOs();
     }
 

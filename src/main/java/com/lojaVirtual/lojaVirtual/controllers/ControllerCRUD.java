@@ -3,9 +3,11 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 public interface ControllerCRUD<T> {
 
-    List<T> buscarTodos();
+    ResponseEntity<List<T>> buscarTodos();
 
     T buscarPorId(long id);
 

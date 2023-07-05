@@ -2,6 +2,7 @@ package com.lojaVirtual.lojaVirtual.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class CategoriaController implements ControllerCRUD<CategoriaDTO> {
     }
 
     @Override
-    public List<CategoriaDTO> buscarTodos() {
+    public ResponseEntity<List<CategoriaDTO>> buscarTodos() {
         return categoriaService.buscaCategorias();
     }
 
